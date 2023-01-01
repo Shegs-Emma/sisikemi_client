@@ -16,21 +16,36 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Link from "next/link";
 
 const Navbar: FC = () => {
   return (
     <NavbarContainer>
       <MiniHeader>TEXT TEXT TEXT TEXT</MiniHeader>
       <MainHeader>
-        <LogoArea>
-          <Image src={logo} alt="Logo" />
-        </LogoArea>
+        <Link href="/">
+          <LogoArea>
+            <Image src={logo} alt="Logo" />
+          </LogoArea>
+        </Link>
         <NavButtons>
-          <H4>NEW IN</H4>
+          <Link href="/newIn">
+            <H4 nav>NEW IN</H4>
+          </Link>
+
           <H4>SHOP</H4>
-          <H4>SALE</H4>
-          <H4>RTW</H4>
-          <H4>COLLECTIONS</H4>
+
+          <Link href="/sale">
+            <H4 nav>SALE</H4>
+          </Link>
+
+          <Link href="/rtw">
+            <H4 nav>RTW</H4>
+          </Link>
+
+          <Link href="/collections">
+            <H4 nav>COLLECTIONS</H4>
+          </Link>
           <H4>BRIDAL</H4>
         </NavButtons>
         <ProfileArea>
