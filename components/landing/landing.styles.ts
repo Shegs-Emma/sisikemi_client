@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 interface StyleProps {
   active?: boolean;
+  newin?: boolean;
+  price?: boolean;
+  collection?: boolean;
 }
 
 const LandingContainer = styled.div`
@@ -52,13 +55,16 @@ const CarouselInfo = styled.div`
   }
 `;
 
-const SectionsArea = styled.div`
+const SectionsArea = styled.div<StyleProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  border-bottom: ${({ price }) => (price ? ".5px solid #4f4f4f" : "")};
+  padding-bottom: ${({ price }) => (price ? "7rem" : "")};
 `;
 
-const SectionHeader = styled.div`
+const SectionHeader = styled.div<StyleProps>`
   display: flex;
   justify-content: space-between;
   width: 45%;
@@ -66,6 +72,7 @@ const SectionHeader = styled.div`
 
   @media screen and (min-width: 52em) {
     width: 20%;
+    width: ${({ newin }) => (newin ? "29%" : "")};
   }
 `;
 
@@ -84,7 +91,7 @@ const Section = styled.div<StyleProps>`
   padding-bottom: 0.2rem;
   border-bottom: ${({ active }) => (active ? "1.5px solid #4f4f4f" : "")};
 `;
-const SectionImages = styled.div`
+const SectionImages = styled.div<StyleProps>`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1rem;
@@ -93,6 +100,8 @@ const SectionImages = styled.div`
 
   @media screen and (min-width: 52em) {
     grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: ${({ collection }) =>
+      collection ? "repeat(3, 1fr)" : ""};
   }
 `;
 

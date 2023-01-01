@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface StyleProps {
   footer?: boolean;
+  centr?: boolean;
 }
 
 const InputField = styled.input.attrs({
@@ -47,4 +48,17 @@ const InputField = styled.input.attrs({
   }
 `;
 
-export { InputField };
+const AnyRow = styled.div<StyleProps>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  text-align: ${({ centr }) => (centr ? "center" : "")};
+`;
+
+const HR = styled.hr`
+  width: 100%;
+  border: 1px solid #bdbdbd;
+`;
+
+export { InputField, AnyRow, HR };
